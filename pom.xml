@@ -14,7 +14,18 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
-  <distributionManagement>
+  <plugins>
+  <plugin>
+  <groupId>org.apache.maven.plugins</groupId>
+  <artifactId>maven-surefire-plugin</artifactId>
+  <configuration>
+    <forkCount>3</forkCount>
+    <reuseForks>true</reuseForks>
+    <argLine>-Xmx1024m -XX:MaxPermSize=256m</argLine>
+  </configuration>
+</plugin>
+</plugins>
+  <!--distributionManagement>
 
 		<repository>
 			<id>sample-release</id>
@@ -24,5 +35,5 @@
 			<id>sample-snap</id>
 			<url>http://192.168.33.15:8081/nexus/content/repositories/sample-snap/</url>
 		</snapshotRepository>		
-  </distributionManagement>
+  </distributionManagement -->
 </project>
